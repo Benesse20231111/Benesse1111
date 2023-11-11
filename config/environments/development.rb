@@ -16,6 +16,9 @@ Rails.application.configure do
 
   # Enable server timing
   config.server_timing = true
+  
+  # add host
+  config.hosts << "3c7252e788cb41738e9145fc5177d606.vfs.cloud9.ap-northeast-1.amazonaws.com"
 
   # Enable/disable caching. By default caching is disabled.
   # Run rails dev:cache to toggle caching.
