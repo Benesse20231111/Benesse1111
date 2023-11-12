@@ -5,14 +5,14 @@
  <title>宿題リスト</title>
 </head>
 <body>
- <h3>宿題リスト編集</h3>
+ <h1>宿題リスト編集</h1>
  <form action="/todos" method="POST">
    <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
-   <input name="text" placeholder="Input here...">
-   <button type="submit">ADD</button>
+   <input name="text" placeholder="I宿題を記入してください">
+   <button type="submit">追加する</button>
  </form>
 
- <h5>宿題リスト</h5>
+ <h2>宿題リスト</h2>
  <ul>
    <% @todos.each do |todo| %>
    <li>
@@ -22,7 +22,7 @@
            method="POST">
        <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
        <input name="_method" type="hidden" value="DELETE">
-       <button type="submit">DEL</button>
+       <button type="submit">削除する</button>
      </form>
    </li>
    <% end %>
