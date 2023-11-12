@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
+# <<<<<<< Updated upstream
   resources :todos
-  get 'users/login'
+# =======
+#   get 'student_todos/index'
+#   get 'details/index'
+#   get 'accesses/index'
+# >>>>>>> Stashed changes
+#   get 'users/login'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
@@ -9,14 +15,26 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
-  get '', to: 'todos#index'
-  get 'todos', to: 'todos#index'
-  get 'todos/index_student', to: 'todos#index_student'
-  post 'todos', to: 'todos#create'
-  delete 'todos/:id', to: 'todos#destroy'
+# <<<<<<< Updated upstream
+#   get '', to: 'todos#index'
+#   get 'todos', to: 'todos#index'
+#   get 'todos/index_student', to: 'todos#index_student'
+#   post 'todos', to: 'todos#create'
+#   delete 'todos/:id', to: 'todos#destroy'
   
-  patch 'todos/:id' => 'todos#update'
-  get 'todos/:id/edit' => 'todos#edit', as:'edit_todos'
+#   patch 'todos/:id' => 'todos#update'
+#   get 'todos/:id/edit' => 'todos#edit', as:'edit_todos'
   
   # get 'todos/:id' => 'todots#show',as: 'todo'
+# =======
+  Rails.application.routes.draw do
+    get 'student_todos/index'
+    get 'details/index'
+    get 'accesses/index'
+    get '', to: 'todos#index'
+    get 'todos', to: 'todos#index'
+    post 'todos', to: 'todos#addTodo'
+    delete 'todos/:id', to: 'todos#deleteTodo'
+  end
+# >>>>>>> Stashed changes
 end
