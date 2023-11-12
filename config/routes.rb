@@ -7,6 +7,10 @@ Rails.application.routes.draw do
 #   get 'accesses/index'
 # >>>>>>> Stashed changes
 #   get 'users/login'
+  # get 'student_todos/index'
+  # get 'details/index'
+  # get 'accesses/index'
+  # get 'users/login'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
