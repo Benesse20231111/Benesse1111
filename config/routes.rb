@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'student_todos/index'
+  get 'details/index'
+  get 'accesses/index'
   get 'users/login'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
@@ -9,6 +12,9 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
   Rails.application.routes.draw do
+  get 'student_todos/index'
+  get 'details/index'
+  get 'accesses/index'
     get '', to: 'todos#index'
     get 'todos', to: 'todos#index'
     post 'todos', to: 'todos#addTodo'
