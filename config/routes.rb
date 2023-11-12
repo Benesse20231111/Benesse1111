@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   Rails.application.routes.draw do
     get '', to: 'todos#index'
     get 'todos', to: 'todos#index'
+    get 'sign_up', to: 'sign_up#index_sign_up'
     post 'todos', to: 'todos#addTodo'
     delete 'todos/:id', to: 'todos#deleteTodo'
   end
