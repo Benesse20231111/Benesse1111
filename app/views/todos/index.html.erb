@@ -1,107 +1,38 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
  <meta charset="utf-8">
- <meta name="viewport" content="width=device-width, initial-scale=1.0">
  <title>宿題リスト</title>
- <style>
- body {
-   font-family: 'Arial', sans-serif;
-   background-color: #f4f4f4;
-   margin: 0;
-   padding: 0;
-   text-align: center;
- }
-
- h3 {
-   color: #333;
-   margin-top: 20px;
- }
-
- form {
-   margin-top: 10px;
- }
-
- input[name="text"] {
-   padding: 8px;
-   width: 200px;
-   margin-right: 10px;
-   border: 1px solid #ccc;
-   border-radius: 4px;
- }
-
- button {
-   padding: 8px;
-   background-color: #4CAF50;
-   color: white;
-   border: none;
-   border-radius: 4px;
-   cursor: pointer;
- }
-
- button:hover {
-   background-color: #45a049;
- }
-
- h5 {
-   color: #333;
-   margin-top: 20px;
- }
-
- ul {
-   list-style-type: none;
-   padding: 0;
- }
-
- li {
-   background-color: #fff;
-   margin: 5px 0;
-   padding: 10px;
-   display: flex;
-   justify-content: space-between;
-   align-items: center;
-   border: 1px solid #ddd;
-   border-radius: 4px;
-   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
- }
-
- form[style="display: inline;"] {
-   margin-left: 10px;
- }
-
- button[type="submit"] {
-   background-color: #e74c3c;
-   color: white;
-   padding: 6px;
-   border: none;
-   border-radius: 4px;
-   cursor: pointer;
- }
-
- button[type="submit"]:hover {
-   background-color: #c0392b;
- }
-</style>
 </head>
 <body>
- <h3>宿題リスト編集</h3>
- <form action="/todos" method="POST">
+ <h1>宿題リスト編集</h1>
+ <%= form_for @todo do |f| %>
    <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
-   <input name="text" placeholder="Input here...">
-   <button type="submit">ADD</button>
- </form>
+   <input name="subject" placeholder="教科">
+   <input name="grade" placeholder="学年">
+   <input name="classroom" placeholder="クラス">
+   <input name="deadline" placeholder="締切日">
+   <input name="discript" placeholder="詳細を記入してください">
+   <input name="text" placeholder="宿題を記入してください">
+   <button type="submit">追加する</button>
+ <% end %>
 
- <h5>宿題リスト</h5>
+ <h2>宿題リスト</h2>
  <ul>
    <% @todos.each do |todo| %>
    <li>
+     <%= todo.subject %>
+     <%= todo.grade %>
+     <%= todo.classroom %>
+     <%= todo.deadline %>
+     <%= todo.discript %>
      <%= todo.text %>
      <form action="/todos/<%= todo.id %>"
            style="display: inline;" 
            method="POST">
        <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
        <input name="_method" type="hidden" value="DELETE">
-       <button type="submit">DEL</button>
+       <%= button_to "削除する", todo_path(todo.id), method: :delete %>
      </form>
    </li>
    <% end %>

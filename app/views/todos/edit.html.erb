@@ -1,0 +1,10 @@
+ <%= form_for @todo do |f| %>
+   <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+   <input name="subject" placeholder="教科">
+   <input name="grade" placeholder="学年">
+   <input name="classroom" placeholder="クラス">
+   <input name="deadline" placeholder="締切日">
+   <input name="discript" placeholder="詳細を記入してください">
+   <input name="text" placeholder="宿題を記入してください">
+   <button type="submit">追加する</button>
+ <% end %>
