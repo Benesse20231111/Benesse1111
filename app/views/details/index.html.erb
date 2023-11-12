@@ -1,0 +1,68 @@
+<style>
+  body{
+    font-family:'Noto Sans JP',sans-serif;
+    background-color: #f6f5f4;
+  }
+  ​
+  .side{
+    background-color: rgb(210, 240, 230);
+    width:250px;
+    height:1000px;
+    text-align: left;
+  }
+  ​
+  .content{
+    background-color: #cde6a2; 
+    width:3000px;
+    height:1000px;
+    text-align: left;
+    margin-left:10px;
+    margin-right: 10px;
+    /* サイドバーとメインコンテンツの間の余白 */
+  }
+  ​
+  article{
+    display: flex;
+  }
+  ​
+  header {
+    display: flex;
+    width: 100%;
+    height: 100px;
+    background-color: darkgrey;
+    align-items: center;
+  }
+  
+  .title {
+    margin-right: auto;
+  }
+  
+  .menu-item {
+    list-style: none;
+    display: inline-block;
+    padding: 10px;
+  }
+</style>
+
+<body>
+  <article>
+
+  <div class="side">
+    <h1>数学</h1>
+    <p>職員室前</p>
+    <p>11/13締切</p>
+  </div>
+  <div class="content">
+    <h1>課題</h1>
+    <p>p90～p98の問15まで解いてきてください。</p>
+    <p>授業後半の小テストで赤点の人は再試験です。</p>
+  </div>
+  <div class="wrapper">
+    <main class="main"></main>
+    <aside class="sidebar">
+      <div class="widget"></div>
+      <div class="widget widget--sticky"></div>
+    </aside>
+  </div>
+  </article>
+</body>
