@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'sign_up/sign_up'
   get 'student_todos/index'
   get 'details/index'
   get 'accesses/index'
@@ -12,6 +13,7 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
   Rails.application.routes.draw do
+  get 'sign_up/sign_up'
   get 'student_todos/index'
   get 'details/index'
   get 'accesses/index'

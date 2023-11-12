@@ -1,21 +1,31 @@
-<h1>宿題リスト</h1>
-<tabel>
-  <tr>
-    <th>ID</th>
-    <th>教科</th>
-    <th>クラス</th>
-    <th>提出場所</th>
-    <th>提出期限</th>
-    <th></th>
-  </tr>
-  <% @aaaaa.each do |todo| %>
-  <tr>
-    <td><%= todo.id%></td>
-    <td><%= todo.%></td>
-    <td><%= todo.%></td>
-    <td><%= todo.%></td>
-    <td><%= todo.%></td>
-    <td><%= link_to '詳細', </td>
-  </tr>
-  <% end %>
-</tabel>
+<!DOCTYPE html>
+<html>
+<head>
+ <meta charset="utf-8">
+ <title>宿題リスト</title>
+</head>
+<body>
+ <h3>宿題リスト編集</h3>
+ <form action="/todos" method="POST">
+   <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+   <input name="text" placeholder="Input here...">
+   <button type="submit">ADD</button>
+ </form>
+
+ <h5>宿題リスト</h5>
+ <ul>
+   <% @todos.each do |todo| %>
+   <li>
+     <%= todo.text %>
+     <form action="/todos/<%= todo.id %>"
+           style="display: inline;" 
+           method="POST">
+       <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+       <input name="_method" type="hidden" value="DELETE">
+       <button type="submit">DEL</button>
+     </form>
+   </li>
+   <% end %>
+ </ul>
+</body>
+</html>
